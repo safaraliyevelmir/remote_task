@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  web:
+    volumes:
+      - .:/app
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://postgres:elmir123@db:5432/tinder
+
+  db:
+    image: postgres:13
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=tinder
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=elmir123
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
