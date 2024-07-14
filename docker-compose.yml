@@ -9,14 +9,14 @@ services:
     depends_on:
       - db
     environment:
-      - DATABASE_URL=postgresql://postgres:elmir123@db:5432/tinder
+      - DATABASE_URL=postgresql://postgres:elmir123@db:5432/test
 
   db:
     image: postgres:13
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_DB=tinder
+      - POSTGRES_DB=test
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=elmir123
     volumes:
