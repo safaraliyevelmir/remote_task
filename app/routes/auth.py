@@ -12,6 +12,7 @@ from app.config import settings
 router = APIRouter(prefix="/auth", tags=["auth"])
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 
+
 @router.post("/register/", response_model=UserCreate)
 async def register_user(user: UserCreate, db: Session = Depends(get_db)) -> UserCreate:
     """Register a new user"""
